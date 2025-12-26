@@ -13,7 +13,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 # ==================== 配置参数 ====================
 client = AsyncOpenAI(
-    api_key="3d866616-54c8-4222-bb96-d5b6e208fbb7",
+    api_key="yours api",
     base_url="https://ark.cn-beijing.volces.com/api/v3",
 )
 
