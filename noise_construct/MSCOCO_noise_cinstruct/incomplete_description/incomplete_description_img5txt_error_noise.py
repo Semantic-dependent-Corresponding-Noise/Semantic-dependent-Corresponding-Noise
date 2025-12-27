@@ -45,7 +45,6 @@ for img_idx in tqdm(images_to_replace, desc="Replacing images"):
     end_idx = start_idx + descriptions_per_image
 
     if end_idx <= len(raw_texts):
-        # Replace all descriptions for this image
         for i in range(start_idx, end_idx):
             if i < len(noise_texts):
                 raw_texts[i] = noise_texts[i]
@@ -61,7 +60,6 @@ output_file_path = f'/path/dataset/incomplete_description_noise_5error_MSCOCO/an
 
 with open(output_file_path, 'w', encoding='utf-8') as f:
     for text in raw_texts:
-        # Remove leading numbering and dot (e.g., "1. ")
         cleaned_text = text.lstrip().split('. ', 1)
         if len(cleaned_text) == 2 and cleaned_text[0].isdigit():
             text = cleaned_text[1]
