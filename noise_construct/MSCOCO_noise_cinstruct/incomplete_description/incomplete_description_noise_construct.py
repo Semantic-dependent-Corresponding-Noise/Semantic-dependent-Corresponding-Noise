@@ -348,8 +348,8 @@ if __name__ == "__main__":
     log_file = setup_logging()
     
     # Configuration Parameters
-    input_directory = "/path/MSCOCO_noise_cinstruct/incomplete_description/original"
-    output_directory = "/path/MSCOCO_noise_cinstruct/incomplete_description/noise"
+    input_directory = "/path/noise_construct/MSCOCO_noise_cinstruct/incomplete_description/original"
+    output_directory = "/path/noise_construct/MSCOCO_noise_cinstruct/incomplete_description/noise"
     replace_ratio = 1.0
     
     logging.info("=" * 80)
