@@ -27,7 +27,7 @@ CHECKPOINT_INTERVAL = 50
 DATASET_TYPE = 'coco'
 IMAGE_DIR = '/path/dataset/core_missing_Error_noise_MSCOCO/images'
 TEST_IDS_PATH = '/path/dataset/core_missing_Error_noise_MSCOCO/annotations/scan_split/test_ids.txt'
-OUTPUT_DIR = '/path/MSCOCO_noise_cinstruct/core_missing/test_testid'
+OUTPUT_DIR = '/path/MSCOCO_noise_cinstruct/core_missing/test_file'
 
 
 LOG_FILE = os.path.join(OUTPUT_DIR, 'processing_test.log')
