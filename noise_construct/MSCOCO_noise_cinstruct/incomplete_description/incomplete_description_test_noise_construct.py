@@ -5,14 +5,14 @@ from openai import OpenAI
 import time
 from tqdm import tqdm
 
-# 设置 KimiChat API 密钥和 API 端点
+# Set KimiChat API key and API endpoint
 client = OpenAI(
-    api_key="sk-GfwpBl4VRepF7AYkXSBa169HVPAowFhCTVfft1zUQSuIWF2b",
+    api_key="yours api",
     base_url="https://api.moonshot.cn/v1"
 )
 
 
-file_path = '/home/zbm/xjd/NPC-master/dataset/incomplete_description_noise_MSCOCO/annotations/scan_split/test_caps.txt'
+file_path = '/path/dataset/incomplete_description_noise_MSCOCO/annotations/scan_split/test_caps.txt'
 with open(file_path, 'r', encoding='utf-8') as f:
     raw_texts = f.readlines()
 
@@ -79,7 +79,7 @@ while modified_count < target_modified:
     i += 1
     remaining_indices = list(set(range(num_texts)) - used_indices)
     if not remaining_indices:
-        print("没有更多可用的文本进行修改。")
+        print("No more texts available for modification.")
         break
     batch_indices = random.sample(remaining_indices, min(batch_size, len(remaining_indices)))
     batch_texts = [raw_texts[idx] for idx in batch_indices]
@@ -105,17 +105,15 @@ while modified_count < target_modified:
     time.sleep(delay_between_requests)
 pbar.close()
 
-print(f"实际生成噪声文本数量: {modified_count}")
+print(f"Actual number of noisy texts generated: {modified_count}")
 
-output_test_file_path = '/home/zbm/xjd/NPC-master/dataset/incomplete_description_noise_MSCOCO/annotations/scan_split/test_caps_incomplete.txt'
+output_test_file_path = '/path/dataset/incomplete_description_noise_MSCOCO/annotations/scan_split/test_caps_incomplete.txt'
 
 with open(output_test_file_path, 'w', encoding='utf-8') as f:
     for text in raw_texts:
-
         cleaned_text = text.lstrip().split('. ', 1)
         if len(cleaned_text) == 2 and cleaned_text[0].isdigit():
             text = cleaned_text[1]
         f.write(text + "\n")
 
-print(f"原始文本和修改后的文本已保存到 {output_test_file_path}")
-
+print(f"Original and modified texts saved to {output_test_file_path}")
