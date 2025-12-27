@@ -10,6 +10,7 @@
 | `core_missing_noise.py` | Generates partial error noise. |
 | `core_missing_img5txt_noise.py` | Generates all error noise. |
 | `./train_file/` | Training data output directory. |
+| `./test_file/` | Test data output directory. |
 
 ---
 
