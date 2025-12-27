@@ -11,23 +11,20 @@ client = OpenAI(
     base_url="https://api.moonshot.cn/v1"
 )
 
-# 读取文本文件
+
 file_path = '/home/zbm/xjd/NPC-master/dataset/incomplete_description_noise_MSCOCO/annotations/scan_split/test_caps.txt'
 with open(file_path, 'r', encoding='utf-8') as f:
     raw_texts = f.readlines()
 
-# 去除文本中的换行符
 raw_texts = [text.strip() for text in raw_texts]
 
-# 创建一个DataFrame来存储文本
 text_data = pd.DataFrame({'raw': raw_texts})
 original_texts = raw_texts.copy()
 replace_ratio = 1.0
 num_texts = len(raw_texts)
-num_to_replace = int(num_texts * replace_ratio)  # 需要替换的文本数量
-indices_to_replace = list(range(num_texts))      # 按顺序处理全部文本
+num_to_replace = int(num_texts * replace_ratio) 
+indices_to_replace = list(range(num_texts))   
 
-# 批量处理函数
 def generate_noisy_text_batch(text_list):
     prompt1 = """You are a professional Sentence revision Assistant., and your only task is to condense sentences without altering their essential meaning. Please strictly follow the following rules and output format:
 Core Rules for Condense sentence:
@@ -69,7 +66,7 @@ Only output the modified sentence directly. Do NOT add any extra content (such a
 requests_per_minute = 5000
 delay_between_requests = 60 / requests_per_minute
 
-# 批次处理
+
 batch_size = 50
 max_retries = 3
 modified_count = 0
@@ -80,7 +77,6 @@ i = 0
 pbar = tqdm(total=target_modified, desc="Generating noisy captions", unit="caption")
 while modified_count < target_modified:
     i += 1
-    # 采样未被修改过的索引
     remaining_indices = list(set(range(num_texts)) - used_indices)
     if not remaining_indices:
         print("没有更多可用的文本进行修改。")
@@ -115,7 +111,7 @@ output_test_file_path = '/home/zbm/xjd/NPC-master/dataset/incomplete_description
 
 with open(output_test_file_path, 'w', encoding='utf-8') as f:
     for text in raw_texts:
-        # 去除开头的编号和点（如 "1. "）
+
         cleaned_text = text.lstrip().split('. ', 1)
         if len(cleaned_text) == 2 and cleaned_text[0].isdigit():
             text = cleaned_text[1]
