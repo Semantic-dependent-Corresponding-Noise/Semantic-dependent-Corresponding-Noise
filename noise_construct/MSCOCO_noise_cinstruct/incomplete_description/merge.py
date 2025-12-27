@@ -171,10 +171,9 @@ if __name__ == "__main__":
     input_directory = "/path/noise_construct/MSCOCO_noise_cinstruct/incomplete_description/noise"
     output_file_path = "/path/noise_construct/MSCOCO_noise_cinstruct/incomplete_description/1.0_noise_train_caps_preliminary.txt"
     
-    
     merge_noisy_files(
         input_dir=input_directory,
         output_file=output_file_path,
         start_num=1,
-        end_num=None  # Auto detect
+        end_num=None  
     )
