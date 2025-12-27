@@ -13,7 +13,7 @@ async def merge_description_files(input_dir, output_file):
         output_file: Path of the merged output file
     """
     
-    pattern = os.path.join(input_dir, "test_caps_5_per_image_part*.txt")
+    pattern = os.path.join(input_dir, "train_caps_5_per_image_part*.txt")
     files = glob.glob(pattern)
     
     if not files:
