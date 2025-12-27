@@ -2,7 +2,7 @@ import random
 from tqdm import tqdm
 
 # Read original text data
-file_path = '/home/zbm/xjd/NPC-master/dataset/Entity_Referential_Error_noise_5error_MSCOCO/annotations/scan_split/0_noise_train_caps.txt'
+file_path = '/path/dataset/Entity_Referential_Error_noise_5error_MSCOCO/annotations/scan_split/0_noise_train_caps.txt'
 
 # Read raw text file
 with open(file_path, 'r', encoding='utf-8') as f:
@@ -11,7 +11,7 @@ with open(file_path, 'r', encoding='utf-8') as f:
 raw_texts = [text.strip() for text in raw_texts]
 
 # Noise file path
-noise_file_path = '/home/zbm/xjd/NPC-master/dataset/Entity_Referential_Error_noise_5error_MSCOCO/annotations/scan_split/1.0_noise_train_caps.txt'
+noise_file_path = /path/dataset/Entity_Referential_Error_noise_5error_MSCOCO/annotations/scan_split/1.0_noise_train_caps.txt'
 
 with open(noise_file_path, 'r', encoding='utf-8') as f:
     noise_texts = f.readlines()
@@ -22,7 +22,7 @@ if len(noise_texts) < len(raw_texts):
     print(f"Warning: Number of noise texts ({len(noise_texts)}) is less than raw texts ({len(raw_texts)})")
     noise_texts = noise_texts * (len(raw_texts) // len(noise_texts) + 1)
 
-replace_ratio = 0.6 #Noise ratios such as 0.2, 0.4, 0.6
+replace_ratio = 0.6 # Noise ratios such as 0.2, 0.4, 0.6
 
 descriptions_per_image = 5
 total_images = len(raw_texts) // descriptions_per_image
@@ -55,7 +55,7 @@ print(f"Total text descriptions replaced: {replacement_count}")
 print(f"Involving {num_images_to_replace} images")
 
 # Output file path
-output_file_path = f'/home/zbm/xjd/NPC-master/dataset/Entity_Referential_Error_noise_5error_MSCOCO/annotations/scan_split/{replace_ratio}_noise_train_caps.txt'
+output_file_path = f'/path/dataset/Entity_Referential_Error_noise_5error_MSCOCO/annotations/scan_split/{replace_ratio}_noise_train_caps.txt'
 
 # Save replaced text to file
 with open(output_file_path, 'w', encoding='utf-8') as f:
