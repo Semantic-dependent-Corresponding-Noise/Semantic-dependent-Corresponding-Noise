@@ -30,7 +30,7 @@
 ### III. Generate Noise with Specified Ratio
 
 - Partial Error (1 img, 5 caps, some errors):
-  Command: python core_missing_noise.py
+  Command: `python core_missing_noise.py`
   Description: Not all descriptions are erroneous
 
 - All Error (1 img, 5 caps, all errors):
