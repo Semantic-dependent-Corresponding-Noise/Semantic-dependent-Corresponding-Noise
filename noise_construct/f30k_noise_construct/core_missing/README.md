@@ -1,4 +1,4 @@
-# Core Missing (Doubao) Noise Generation Workflow
+# Core Missing (f30k) Noise Generation Workflow
 
 ## 1. Project Structure
 
