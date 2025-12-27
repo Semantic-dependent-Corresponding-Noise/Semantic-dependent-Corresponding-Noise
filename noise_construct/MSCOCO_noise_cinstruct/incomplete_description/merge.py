@@ -168,8 +168,8 @@ def find_missing_files(input_dir, start_num=1, end_num=None):
 
 if __name__ == "__main__":
     # Configuration parameters
-    input_directory = "/path/MSCOCO_noise_cinstruct/incomplete_description/noise"
-    output_file_path = "/path/MSCOCO_noise_cinstruct/incomplete_description/1.0_noise_train_caps_preliminary.txt"
+    input_directory = "/path/noise_construct/MSCOCO_noise_cinstruct/incomplete_description/noise"
+    output_file_path = "/path/noise_construct/MSCOCO_noise_cinstruct/incomplete_description/1.0_noise_train_caps_preliminary.txt"
     
     # Optional: Check for missing files
     # print("Checking for missing files...")
