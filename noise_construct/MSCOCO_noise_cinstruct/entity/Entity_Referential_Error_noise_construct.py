@@ -12,7 +12,7 @@ client = OpenAI(
 )
 
 # Read text file
-file_path = '/home/zbm/xjd/NPC-master/dataset/Entity_Referential_Error_noise_MSCOCO/annotations/scan_split/0_noise_train_caps.txt'
+file_path = '/path/dataset/Entity_Referential_Error_noise_MSCOCO/annotations/scan_split/0_noise_train_caps.txt'
 with open(file_path, 'r', encoding='utf-8') as f:
     raw_texts = f.readlines()
 
@@ -72,7 +72,7 @@ target_modified = num_to_replace
 used_indices = set()
 
 i = 0
-output_test_file_path = f'/home/zbm/xjd/NPC-master/dataset/Entity_Referential_Error_noise_MSCOCO/annotations/scan_split/{replace_ratio}_noise_train_caps.txt'
+output_test_file_path = f'/path/dataset/Entity_Referential_Error_noise_MSCOCO/annotations/scan_split/{replace_ratio}_noise_train_caps.txt'
 
 pbar = tqdm(total=target_modified, desc="Generating noisy captions", unit="caption")
 while modified_count < target_modified:
