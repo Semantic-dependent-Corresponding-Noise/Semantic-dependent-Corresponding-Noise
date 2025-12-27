@@ -19,7 +19,7 @@ combined_descriptions = [' '.join(descriptions) for descriptions in image_descri
 vectorizer = TfidfVectorizer(stop_words='english')
 X = vectorizer.fit_transform(combined_descriptions)
 
-n_clusters = 50 
+n_clusters = 500 
 kmeans = KMeans(n_clusters=n_clusters, random_state=42)
 clusters = kmeans.fit_predict(X)
 
