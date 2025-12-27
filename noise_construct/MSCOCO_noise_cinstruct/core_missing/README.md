@@ -1,54 +1,47 @@
-File Structure
-text
+# Noise File Generation Workflow
+
+## Project Structure
 .
-├── train_file/                    # Output directory for training set noise files
-├── test_file/                     # Output directory for test set noise files
-├── yibu_batch_core_missing_noise_doubao_construct.py      # Batch noise generation for training set (fully incorrect)
-├── yibu_batch_core_missing_test_noise_doubao_construct.py # Batch noise generation for test set (fully incorrect)
-├── merge_files.py                 # File merging tool
-├── core_missing_noise.py          # Generate noise files with partially incorrect descriptions
-└── core_missing_img5txt_noise.py  # Generate noise files with fully incorrect descriptions
-Usage Steps
-1. Generate Fully Incorrect Noise Files (Batch Processing)
-Training Set Noise Generation
-bash
+├── yibu_batch_core_missing_noise_doubao_construct.py      # Training noise generation (100% error)
+├── yibu_batch_core_missing_test_noise_doubao_construct.py # Test noise generation
+├── merge_files.py                                         # Merge split files
+├── core_missing_noise.py                                  # Generate partial error noise
+├── core_missing_img5txt_noise.py                          # Generate all error noise
+└── train_file/                                            # Training data output directory
+
+
+## Usage Steps
+
+### I. Generate Training Set Noise
+
+**1. Generate Base Noise Files**
+```bash
 python yibu_batch_core_missing_noise_doubao_construct.py
-Output Format: The program generates one file for every 1000 images in sequential order, saved as:
-
-text
-train_file/train_caps_5_per_image_part{file_number}.txt
-Test Set Noise Generation
-bash
-python yibu_batch_core_missing_test_noise_doubao_construct.py
-Output Format: Same as above, but for test set data.
-
-2. Merge Batch Files
+Generate 100% erroneous noise descriptions
+Process in batches of 1000 images sequentially
+Output: train_caps_5_per_image_part{file_number}.txt
+Saved to: ./train_file/ directory
+2. Merge Files
 bash
 python merge_files.py
-Merge the segmented batch files into a complete noise file.
-
-3. Generate Noise Files with Specified Ratios
-Option A: 5 Description Texts per Image (Partially Incorrect)
+Merge split part files into a complete training noise file
+II. Generate Test Set Noise
 bash
-python3 core_missing_noise.py
-Generate files where only some description texts contain noise for each image.
 
-Option B: 5 Description Texts per Image (Fully Incorrect)
-python3 core_missing_img5txt_noise.py
-Generate files where all 5 description texts contain noise for each image.
+python yibu_batch_core_missing_test_noise_doubao_construct.py
+Directly generate a complete test set noise file
+III. Generate Noise with Specified Ratio
+Choose based on requirements:
 
+Scenario	Command	Description
+Partial Error (1 img, 5 caps, some errors)	python core_missing_noise.py	Not all descriptions are erroneous
+All Error (1 img, 5 caps, all errors)	python core_missing_img5txt_noise.py	All descriptions are erroneous
+Configuration Notes
+Input Data: Ensure image files are placed as required
+Output Directory: Intermediate training files are automatically saved to ./train_file/
+Naming Format: train_caps_5_per_image_part{number}.txt
 Important Notes
-Ensure the corresponding image dataset and original description files are prepared before running
-
-Batch generation processes sequentially and saves intermediate files for every 1000 images
-
-The file merging step must be executed after batch generation is complete
-
-Final noise ratios can be adjusted in the respective scripts according to requirements
-
-Output File Description
-Batch generated files: train_caps_5_per_image_part{number}.txt
-
-Merged complete file: 1.0_noise_train_caps 
-
-Final noise files: Generated according to selected script with different noise ratios
+Execution order: Generate → Merge → Filter
+Generating 100% error noise is the foundation for subsequent operations
+Ensure sufficient disk space
+All scripts should be run from the project root directory
