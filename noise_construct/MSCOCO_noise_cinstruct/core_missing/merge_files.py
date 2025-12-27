@@ -66,7 +66,7 @@ async def merge_description_files(input_dir, output_file):
         return False
 
 def sync_merge_description_files(input_dir, output_file):
-    pattern = os.path.join(input_dir, "test_caps_5_per_image_part*.txt")
+    pattern = os.path.join(input_dir, "train_caps_5_per_image_part*.txt")
     files = glob.glob(pattern)
     
     if not files:
@@ -95,9 +95,9 @@ def sync_merge_description_files(input_dir, output_file):
                 for _ in f:
                     total_lines += 1
             
-            print(f"总行数: {total_lines:,}")
-            print(f"图片数: {total_lines // 5:,}")
-            print(f"文件大小: {os.path.getsize(output_file):,} 字节")
+            print(f"Total number of lines: {total_lines:,}")
+            print(f"Number of images: {total_lines // 5:,}")
+            print(f"File size: {os.path.getsize(output_file):,} byte")
         
         return True
         
