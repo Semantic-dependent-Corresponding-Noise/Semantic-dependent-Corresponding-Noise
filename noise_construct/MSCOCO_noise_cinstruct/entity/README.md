@@ -1,26 +1,34 @@
 # Entity Referential Error Noise Generation Workflow
 
-## Usage Steps
+## 1. Project Structure
 
-### I. Generate Base Noise Files
+| File Name | Description |
+| :--- | :--- |
+| `Entity_Referential_Error_noise_construct.py` | Generates training noise (100% error). |
+| `Entity_Referential_Error_test_noise_construct.py` | Generates test set noise. |
+| `Entity_Referential_Error_noise.py` | Generates partial error noise (Mixed). |
+| `Entity_Referential_Error_img5txt_noise.py` | Generates all-error noise (Total). |
 
-**1. Generate Training Set Noise (100% Error)**
-   Command: `python Entity_Referential_Error_noise_construct.py`
-   - Generate **100% erroneous** noise descriptions for the training set.
-   - This step is necessary to create the foundational data for subsequent noise ratio generation.
+---
 
-**2. Generate Test Set Noise**
-   Command: `python Entity_Referential_Error_test_noise_construct.py`
-   - Directly generate noise files for the test set.
+## 2. Usage Steps
 
-### II. Generate Noise with Specified Ratio
+### Phase I: Generate Training Set Noise
 
-After obtaining the complete base noise files, select the appropriate script based on the error distribution requirements for the captions (1 image corresponds to 5 captions):
+**Generate Base Noise Files**
+Run the command `python Entity_Referential_Error_noise_construct.py` to generate **100% erroneous noise descriptions** for the training set. This execution generates the foundational data file where every description contains entity referential errors, which is necessary for creating subsequent datasets with specific noise ratios.
 
-- **Partial Error (Mixed)**
-  Command: `python Entity_Referential_Error_noise.py`
-  - **Description:** Generates a dataset where **not all** 5 descriptions for an image are erroneous (some are correct, some are noisy).
+### Phase II: Generate Test Set Noise
 
-- **All Error (Total)**
-  Command: `python Entity_Referential_Error_img5txt_noise.py`
-  - **Description:** Generates a dataset where **all 5** descriptions for an image are erroneous.
+**Generate Test Noise**
+Run the command `python Entity_Referential_Error_test_noise_construct.py`. This script directly generates the complete noise file for the test set without requiring intermediate steps.
+
+### Phase III: Generate Noise with Specified Ratio
+
+After obtaining the complete base noise files from Phase I, use the following scripts to generate datasets with specific error ratios (assuming a standard setting where 1 image corresponds to 5 descriptions):
+
+**1. Partial Error (Mixed)**
+Run the command `python Entity_Referential_Error_noise.py` to generate a dataset where **not all** 5 descriptions for a given image are erroneous. This results in a mixed set of correct and noisy captions for specific images.
+
+**2. All Error (Total)**
+Run the command `python Entity_Referential_Error_img5txt_noise.py` to generate a dataset where **all 5** descriptions for a given image are erroneous (100% error rate for the selected images).
