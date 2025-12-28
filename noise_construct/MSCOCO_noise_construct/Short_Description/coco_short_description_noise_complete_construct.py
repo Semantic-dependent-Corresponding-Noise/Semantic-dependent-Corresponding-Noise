@@ -299,9 +299,9 @@ if __name__ == "__main__":
     log_file = setup_logging()
     
     # Configuration parameters
-    file1_path = "/path/dataset/incomplete_description_noise_MSCOCO/annotations/scan_split/0_noise_train_caps.txt"
-    file2_path = "/path/noise_construct/MSCOCO_noise_cinstruct/incomplete_description/1.0_noise_train_caps_preliminary.txt"
-    file3_path = "/path/dataset/incomplete_description_noise_MSCOCO/annotations/scan_split/1.0_noise_train_caps.txt"
+    file1_path = "/path/dataset/Short_Description_noise_MSCOCO/annotations/scan_split/0_noise_train_caps.txt"
+    file2_path = "/path/noise_construct/MSCOCO_noise_construct/Short_Description/1.0_noise_train_caps_preliminary.txt"
+    file3_path = "/path/dataset/Short_Description_noise_MSCOCO/annotations/scan_split/1.0_noise_train_caps.txt"
     replace_ratio = 1.0
     
     logging.info("=" * 80)
