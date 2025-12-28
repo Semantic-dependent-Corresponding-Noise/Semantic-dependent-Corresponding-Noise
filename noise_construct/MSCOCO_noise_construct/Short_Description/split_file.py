@@ -65,5 +65,5 @@ def split_file_with_path(input_file, output_path, lines_per_file=1000):
 
 
 if __name__ == "__main__":
-    split_file_with_path("/path/dataset/incomplete_description_noise_MSCOCO/annotations/scan_split/0_noise_train_caps.txt", "/path/noise_construct/MSCOCO_noise_cinstruct/incomplete_description/original", 1000)
+    split_file_with_path("/path/dataset/Short_Description_noise_MSCOCO/annotations/scan_split/0_noise_train_caps.txt", "/path/noise_construct/MSCOCO_noise_construct/Short_Description/original", 1000)
     
