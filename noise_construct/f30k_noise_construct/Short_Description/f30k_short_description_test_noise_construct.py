@@ -12,7 +12,7 @@ client = OpenAI(
 )
 
 # Read text file
-file_path = '/path/dataset/incomplete_description_noise_f30k/annotations/scan_split/test_caps.txt'
+file_path = '/path/dataset/Short_Description_noise_f30k/annotations/scan_split/test_caps.txt'
 with open(file_path, 'r', encoding='utf-8') as f:
     raw_texts = f.readlines()
 raw_texts = [text.strip() for text in raw_texts]
@@ -107,7 +107,7 @@ pbar.close()
 
 print(f"Actual number of noisy texts generated: {modified_count}")
 
-output_test_file_path = '/path/dataset/incomplete_description_noise_f30k/annotations/test_caps.txt'
+output_test_file_path = '/path/dataset/Short_Description_noise_f30k/annotations/test_caps.txt'
 
 with open(output_test_file_path, 'w', encoding='utf-8') as f:
     for text in raw_texts:
