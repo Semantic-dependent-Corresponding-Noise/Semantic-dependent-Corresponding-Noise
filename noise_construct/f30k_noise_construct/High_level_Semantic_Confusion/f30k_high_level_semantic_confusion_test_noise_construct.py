@@ -4,7 +4,7 @@ from sklearn.cluster import KMeans
 import random
 
 # Input file path
-file_path = '/path/dataset/k_means_f30k/annotations/scan_split/test_caps.txt' 
+file_path = '/path/dataset/High_level_Semantic_Confusion_f30k/annotations/scan_split/test_caps.txt' 
 with open(file_path, 'r', encoding='utf-8') as f:
     lines = [line.strip() for line in f.readlines()]
 
@@ -54,7 +54,7 @@ for cluster in range(n_clusters):
                         replacements.append((img_idx, desc_idx, original_text, replacement_text))
 
 # Output file path
-output_file = '/path/dataset/k_means_f30k/annotations/scan_split/test_caps_kmeans.txt'  
+output_file = '/path/dataset/High_level_Semantic_Confusion_f30k/annotations/scan_split/test_caps_kmeans.txt'  
 with open(output_file, 'w', encoding='utf-8') as f:
     for image_desc in modified_descriptions:
         for text in image_desc:
