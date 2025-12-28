@@ -6,9 +6,9 @@
 | :--- | :--- |
 | `f30k_object_omission_noise_doubao.py` | Generates training noise (100% error) in batches. |
 | `f30k_object_omission_test_noise_doubao.py` | Generates test set noise. |
-| `merge_files.py` | Merges the split batch files into a single complete file. |
 | `f30k_object_omission_noise.py` | Generates partial error noise (Mixed). |
 | `f30k_object_omission_img5txt_noise.py` | Generates all-error noise (Total). |
+| `merge_files.py` | Merges the split batch files into a single complete file. |
 | `./train_flickr/` | Directory where training batch output files are saved. |
 | `./test_flickr/` | Directory where test batch output files are saved. |
 
