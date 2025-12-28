@@ -26,10 +26,10 @@ SAVE_INTERVAL = 1000
 MAX_TEST_IMAGES = None          
 
 # Path Configuration
-TEST_IDS_PATH = '/path/dataset/core_missing_Error_noise_f30k/annotations/scan_split/test_ids.txt'
-IMAGE_NAMES_PATH = '/path/dataset/core_missing_Error_noise_f30k/annotations/scan_split/image_name.txt'
-IMAGE_DIR = '/path/dataset/core_missing_Error_noise_f30k/images'
-OUTPUT_DIR = '/path/noise_construct/f30k_noise_construct/core_missing/test_flickr'
+TEST_IDS_PATH = '/path/dataset/Object_Omission_noise_f30k/annotations/scan_split/test_ids.txt'
+IMAGE_NAMES_PATH = '/path/dataset/Object_Omission_noise_f30k/annotations/scan_split/image_name.txt'
+IMAGE_DIR = '/path/dataset/Object_Omission_noise_f30k/images'
+OUTPUT_DIR = '/path/noise_construct/f30k_noise_construct/Object_Omission/test_flickr'
 
 # File Configuration
 LOG_FILE = os.path.join(OUTPUT_DIR, 'processing_flickr_test.log')
