@@ -22,7 +22,7 @@ for row in train_data.itertuples():
         current_index += 1
 
 # Noise file path
-noise_file_path = /path/dataset/Short_Description_noise_5error_f30k/annotations/scan_split/1.0_noise_train_caps.txt'
+noise_file_path = '/path/dataset/Short_Description_noise_5error_f30k/annotations/scan_split/1.0_noise_train_caps.txt'
 
 with open(noise_file_path, 'r', encoding='utf-8') as f:
     noise_texts = f.readlines()
